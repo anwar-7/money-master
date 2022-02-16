@@ -15,12 +15,74 @@
     <section class="container">
         <div>
             <div class="row">
-              <div class="col-6">
-                One of three columns
+                <!-- image is here -->
+                <div class="col-sm-7 col-md-7 col-lg-7 col-xl-7">
+                <img src="./image/money.jpg" alt="" srcset="" style="max-width: 100%">
               </div>
-              <div class="col-6">
-                One of three columns
+              <!-- income field -->
+              <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5">
+                <h3 class="text-center">Income</h3>
+                <div class="mb-3 row">
+                    <label for="input-income" class="col-sm-2 col-form-label">Income:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="input-income">
+                    </div>
               </div>
+              <!-- expenses field -->
+                <h3 class="text-center">Expenses</h3>
+                <!-- food expenses -->
+                <div class="mb-3 row">
+                    <label for="food-expenses" class="col-sm-2 col-form-label">Food:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="food-expenses">
+                    </div>
+              </div>
+              <!-- rent expenses -->
+                <div class="mb-3 row">
+                    <label for="rent-expenses" class="col-sm-2 col-form-label">Rent:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="rent-expenses">
+                    </div>
+              </div>
+              <!-- clothes expenses -->
+                <div class="mb-3 row">
+                    <label for="clothes-expenses" class="col-sm-2 col-form-label">Clothes:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="clothes-expenses">
+                    </div>
+              </div>
+              <!-- button field -->
+              <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3 btn-center" id="calculate-btn">Calculate</button>
+              </div>
+              <br>
+              <!-- total expenses field  -->
+              <h3 class="text-center">Total Expenses: <span id="expenses-total">0000</span></h3>
+              <br>
+              <!-- balance field -->
+              <h3 class="text-center">Balance: <span id="balance-total">0000</span></h3>
+              <br>
+              <!-- saving field is here -->
+              <div class="mb-3 row">
+                  <!-- saving percent field -->
+                <label for="saving-percent" class="col-sm-2 col-form-label">Save:</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="saving-percent">
+                </div>
+                %
+                <div class="col-auto">
+                    <!-- saving button -->
+                    <button type="submit" class="btn btn-primary mb-3 btn-center" id="save-btn">Save</button>
+                  </div>
+
+            </div>
+            <br>
+              <!-- total saving amount field  -->
+              <h3 class="text-center">Saving Amount: <span id="saving-amount">0000</span></h3>
+              <br>
+              <!-- Remaining Balance field -->
+              <h3 class="text-center">Remaining Balance: <span id="remaining-balance">0000</span></h3>
+              <br>
         </div>
     </section>
     <!----------- bootstrap script ----------->
