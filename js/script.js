@@ -45,21 +45,10 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
 
 // clicked hear saving
 document.getElementById('save-btn').addEventListener('click', function () {
-  // const balanceChaked = document.getElementById('balance-total');
-  // console.log(balanceChaked.innerText);
-  // if (
-  //   balanceChaked.innerText == '' ||
-  //   balanceChaked.innerText == null ||
-  //   balanceChaked.innerText < 0
-  // ) {
-  //   alert('You have to input income valance first');
-  //   return false;
-  // } else {
-  //   saveError();
-  // }
   saveError();
 });
 
+// calculate error function
 function calculateError() {
   let totalCost = totalExpenses();
   let income = document.getElementById('input-income').value;
@@ -96,10 +85,19 @@ function calculateError() {
 
 // saving error function
 function saveError() {
+  let incomeInfo = document.getElementById('input-income').value;
+  let balanceInfo = document.getElementById('balance-total').innerText;
   let balance = totalBalance();
   let saveAmount = document.getElementById('saving-percent').value;
   let totalSaveAmount = parseFloat(saveAmount);
-
+  if (incomeInfo == '') {
+    alert('Income can not be empty');
+    return false;
+  }
+  if (balanceInfo == 0) {
+    alert('Balance is empty');
+    return false;
+  }
   if (saveAmount == '' || saveAmount == null || saveAmount < 0) {
     alert('Please Input Number Value and Positive Value!');
     return false;
@@ -108,11 +106,9 @@ function saveError() {
   } else {
     const savingPercent = document.getElementById('saving-percent').value;
     const saving = (income() * parseFloat(savingPercent)) / 100;
-
     // saving amount show
     const savingAmount = document.getElementById('saving-amount');
     savingAmount.innerText = saving;
-
     // remaining balance show
     const remainingBalance = document.getElementById('remaining-balance');
     remainingBalance.innerText = balance - saving;
