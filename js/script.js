@@ -90,6 +90,7 @@ function saveError() {
   let balance = totalBalance();
   let saveAmount = document.getElementById('saving-percent').value;
   let totalSaveAmount = parseFloat(saveAmount);
+
   if (incomeInfo == '') {
     alert('Income can not be empty');
     return false;
