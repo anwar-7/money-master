@@ -44,7 +44,19 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
 });
 
 // clicked hear saving
-document.getElementById('save-btn').addEventListener('click', function (event) {
+document.getElementById('save-btn').addEventListener('click', function () {
+  // const balanceChaked = document.getElementById('balance-total');
+  // console.log(balanceChaked.innerText);
+  // if (
+  //   balanceChaked.innerText == '' ||
+  //   balanceChaked.innerText == null ||
+  //   balanceChaked.innerText < 0
+  // ) {
+  //   alert('You have to input income valance first');
+  //   return false;
+  // } else {
+  //   saveError();
+  // }
   saveError();
 });
 
@@ -56,20 +68,24 @@ function calculateError() {
   let rentExpense = document.getElementById('rent-expenses').value;
   let clothesExpense = document.getElementById('clothes-expenses').value;
 
-  if (income == '' || income == null) {
-    alert('please input nambar valu');
+  if (income == '' || income == null || income < 0) {
+    alert('Please Input Number Value and Positive Value!');
     return false;
-  } else if (foodExpense == '' || foodExpense == null) {
-    alert('please input nambar valu');
+  } else if (foodExpense == '' || foodExpense == null || foodExpense < 0) {
+    alert('Please Input Number Value and Positive Value!');
     return false;
-  } else if (rentExpense == '' || rentExpense == null) {
-    alert('please input nambar valu');
+  } else if (rentExpense == '' || rentExpense == null || rentExpense < 0) {
+    alert('Please Input Number Value and Positive Value!');
     return false;
-  } else if (clothesExpense == '' || clothesExpense == null) {
-    alert('please input nambar valu');
+  } else if (
+    clothesExpense == '' ||
+    clothesExpense == null ||
+    clothesExpense < 0
+  ) {
+    alert('Please Input Number Value and Positive Value!');
     return false;
   } else if (totalIncome < totalCost) {
-    alert('total cost can not be greater than total income');
+    alert('Total Expense Can Not Be Greater Than Total Income');
   } else {
     const totalExpensesOutput = document.getElementById('expenses-total');
     totalExpensesOutput.innerText = totalExpenses();
@@ -78,16 +94,17 @@ function calculateError() {
   }
 }
 
+// saving error function
 function saveError() {
   let balance = totalBalance();
   let saveAmount = document.getElementById('saving-percent').value;
   let totalSaveAmount = parseFloat(saveAmount);
 
-  if (saveAmount == '' || saveAmount == null) {
-    alert('please input nambar valu');
+  if (saveAmount == '' || saveAmount == null || saveAmount < 0) {
+    alert('Please Input Number Value and Positive Value!');
     return false;
   } else if (balance < totalSaveAmount) {
-    alert('total saving can not be greater than total Balance');
+    alert('Total Saving Can Not Be Greater Than Total Balance');
   } else {
     const savingPercent = document.getElementById('saving-percent').value;
     const saving = (income() * parseFloat(savingPercent)) / 100;
