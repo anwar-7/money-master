@@ -89,8 +89,10 @@ function saveError() {
   let balanceInfo = document.getElementById('balance-total').innerText;
   let balance = totalBalance();
   let saveAmount = document.getElementById('saving-percent').value;
-  let totalSaveAmount = parseFloat(saveAmount);
+  // let totalSaveAmount = parseFloat(saveAmount);
 
+  const savingPercent = document.getElementById('saving-percent').value;
+  const saving = (income() * parseFloat(savingPercent)) / 100;
   if (incomeInfo == '') {
     alert('Income can not be empty');
     return false;
@@ -102,14 +104,16 @@ function saveError() {
   if (saveAmount == '' || saveAmount == null || saveAmount < 0) {
     alert('Please Input Number Value and Positive Value!');
     return false;
-  } else if (balance < totalSaveAmount) {
-    alert('Total Saving Can Not Be Greater Than Total Balance');
+  } else if (balance < saving) {
+    alert('Total Savings Can Not Be Greater Than Total Balance.......');
   } else {
     const savingPercent = document.getElementById('saving-percent').value;
     const saving = (income() * parseFloat(savingPercent)) / 100;
+
     // saving amount show
     const savingAmount = document.getElementById('saving-amount');
     savingAmount.innerText = saving;
+
     // remaining balance show
     const remainingBalance = document.getElementById('remaining-balance');
     remainingBalance.innerText = balance - saving;
